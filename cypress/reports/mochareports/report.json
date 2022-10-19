@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-10-19T10:04:12.776Z",
+    "end": "2022-10-19T10:04:41.337Z",
+    "duration": 24772,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7e006bcf-1cd3-4587-823c-1f78b77ea1c0",
+      "title": "",
+      "fullFile": "cypress/integration/e2e/currencyConverter.spec.js",
+      "file": "cypress/integration/e2e/currencyConverter.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6a287e10-20f4-4258-ae09-a6ef56b4781d",
+          "title": "Currency-converter and send-money related test-scripts:",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Example of currency conversion from GBP to EUR",
+              "fullTitle": "Currency-converter and send-money related test-scripts: Example of currency conversion from GBP to EUR",
+              "timedOut": null,
+              "duration": 8580,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(url + \"/currencyconverter/\");\n_currencyConverter.currencyConverterPage.inputAmount(\"10\");\n_currencyConverter.currencyConverterPage.clickOnFromCurrencyItem(\"GBP\");\n_currencyConverter.currencyConverterPage.clickOnToCurrencyItem(\"EUR\");\n_currencyConverter.currencyConverterPage.clickOnConvertButton();\n_currencyConverter.currencyConverterPage.verifyConvertedAmount(\"11.4\");",
+              "err": {},
+              "uuid": "37d2badb-a9d4-4a62-bff1-4462742e7a81",
+              "parentUUID": "6a287e10-20f4-4258-ae09-a6ef56b4781d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Currency Converter errors and assertions",
+              "fullTitle": "Currency-converter and send-money related test-scripts: Currency Converter errors and assertions",
+              "timedOut": null,
+              "duration": 5142,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(url + \"/currencyconverter/\");\n_currencyConverter.currencyConverterPage.inputAmount(\"ABC\");\n_currencyConverter.currencyConverterPage.verifyEnterAmountError(\"Please enter a valid amount\");\n_currencyConverter.currencyConverterPage.clickOnFromCurrencyItem(\"INR\");\n_currencyConverter.currencyConverterPage.verifyFromCurrency(\"INR – Indian Rupee\");\n_currencyConverter.currencyConverterPage.verifyConvertButton(\"Convert\");",
+              "err": {},
+              "uuid": "032a6c3d-978e-4eb6-a8e2-838d3fab8adb",
+              "parentUUID": "6a287e10-20f4-4258-ae09-a6ef56b4781d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Register Now button is enabled",
+              "fullTitle": "Currency-converter and send-money related test-scripts: Verify Register Now button is enabled",
+              "timedOut": null,
+              "duration": 11050,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(url + \"/send-money/\");\nCypress.on('uncaught:exception', (err, runnable) => {\n  // returning false here prevents Cypress from\n  // failing the test\n  return false;\n});\n_currencyConverter.currencyConverterPage.acceptCookies();\n_currencyConverter.currencyConverterPage.clickOnSignIn();\n_currencyConverter.currencyConverterPage.inputUsername(\"shireesha@gmail.com\");\n_currencyConverter.currencyConverterPage.inputPassword(\"bla123Blaa\");\n_currencyConverter.currencyConverterPage.verifyRegisterNowBtnIsEnabled();",
+              "err": {},
+              "uuid": "f22537a9-fd9c-4acb-9fa8-145183c10f74",
+              "parentUUID": "6a287e10-20f4-4258-ae09-a6ef56b4781d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "37d2badb-a9d4-4a62-bff1-4462742e7a81",
+            "032a6c3d-978e-4eb6-a8e2-838d3fab8adb",
+            "f22537a9-fd9c-4acb-9fa8-145183c10f74"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 24772,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}
