@@ -1,0 +1,34 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
+    "preprod": "npm run clean:reports",
+    "prodScripts": "cypress run --env ENV=prod,grepTags='currencyConverter regression' --browser chrome --headed --spec cypress/integration/e2e/**/*",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "postprod": "npm run combine-reports && npm run generate-report",
+    "prod": "npm run prodScripts || npm run postprod"
+  },
+  "devDependencies": {
+    "cypress": "^8.6.0",
+    "cypress-dotenv": "^2.0.0",
+    "cypress-fail-on-console-error": "^2.1.3",
+    "cypress-grep": "^2.13.1",
+    "cypress-localstorage-commands": "^1.7.0",
+    "cypress-multi-reporters": "^1.5.0",
+    "dotenv": "^16.0.1",
+    "mocha": "^5.2.0",
+    "mocha-junit-reporter": "^2.0.2",
+    "mochawesome": "^4.1.0",
+    "mochawesome-merge": "^4.0.0",
+    "mochawesome-report-generator": "^4.0.1",
+    "mysql": "github:mysqljs/mysql"
+  },
+  "dependencies": {
+    "@otplib/preset-browser": "^12.0.1",
+    "aws-sdk": "^2.1135.0",
+    "otplib": "^12.0.1"
+  }
+}
